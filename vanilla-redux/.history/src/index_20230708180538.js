@@ -6,17 +6,14 @@ const number = document.querySelector("span");
 
 number.innerText = 0;
 
-const PLUS = "PLUS";
-const MINUS = "MINUS";
+const PLUS = "PLUS"
+const MINUS = "MINUS"
 
 const reducer = (count = 0, action) => {
   switch (action.type) {
-    case PLUS:
+    case "PLUS":
       return count + 1;
-    case MINUS:
-      return count - 1;
-    default:
-      return count;
+    case
   }
 };
 

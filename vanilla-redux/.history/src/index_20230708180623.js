@@ -16,7 +16,7 @@ const reducer = (count = 0, action) => {
     case MINUS:
       return count - 1;
     default:
-      return count;
+      return 0;
   }
 };
 
