@@ -15,7 +15,8 @@ const addTodo = (text) => {
   };
 };
 
-const deleteTodo = (id) => {
+const deleteTodo = (e) => {
+  const id = e.target.parentNode.id;
   return {
     type: DELETE_TODO,
     id,
@@ -27,7 +28,7 @@ const reducer = (state = [], action) => {
     case ADD_TODO:
       return [...state, { text: action.text, id: action.id }];
     case DELETE_TODO:
-      return state.filter((toDo) => toDo.id !== parseInt(action.id));
+      return [];
     default:
       return state;
   }
@@ -41,8 +42,7 @@ const dispatchAddTodo = (text) => {
 };
 
 const dispatchDeleteTodo = (e) => {
-  const id = parseInt(e.target.parentNode.id);
-  store.dispatch(deleteTodo(id));
+  store.dispatch(deleteTodo(e));
 };
 
 const paintTodos = () => {

@@ -7,18 +7,11 @@ const ul = document.querySelector("ul");
 const ADD_TODO = "ADD_TODO";
 const DELETE_TODO = "DELETE_TODO";
 
-const addTodo = (text) => {
+const addTodo = () => {
   return {
     type: ADD_TODO,
     text,
     id: Date.now(),
-  };
-};
-
-const deleteTodo = (id) => {
-  return {
-    type: DELETE_TODO,
-    id,
   };
 };
 
@@ -27,7 +20,7 @@ const reducer = (state = [], action) => {
     case ADD_TODO:
       return [...state, { text: action.text, id: action.id }];
     case DELETE_TODO:
-      return state.filter((toDo) => toDo.id !== parseInt(action.id));
+      return [];
     default:
       return state;
   }
@@ -37,12 +30,12 @@ const store = createStore(reducer);
 store.subscribe(() => console.log(store.getState()));
 
 const dispatchAddTodo = (text) => {
-  store.dispatch(addTodo(text));
+  store.dispatch({});
 };
 
 const dispatchDeleteTodo = (e) => {
-  const id = parseInt(e.target.parentNode.id);
-  store.dispatch(deleteTodo(id));
+  const id = e.target.parentNode.id;
+  store.dispatch({ type: DELETE_TODO, id });
 };
 
 const paintTodos = () => {
