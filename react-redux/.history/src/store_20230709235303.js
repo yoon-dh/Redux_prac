@@ -1,6 +1,9 @@
 import { legacy_createStore as createStore } from "redux";
 import { createAction } from "@reduxjs/toolkit";
 
+const ADD = "ADD";
+const DELETE = "DELETE";
+
 // ❌ use just react-redux
 // export const addToDo = (text) => {
 //   return {
