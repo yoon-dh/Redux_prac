@@ -1,5 +1,5 @@
 import { legacy_createStore as createStore } from "redux";
-import { createAction, createReducer } from "@reduxjs/toolkit";
+import { createAction, createReducer, } from "@reduxjs/toolkit";
 
 // ❌ use just react-redux : createAction
 // export const addToDo = (text) => {
@@ -39,14 +39,21 @@ export const deleteToDo = createAction("DELETE");
 // 1. 새로운 state를 추가할 수 있음 (이전 하던 방식) ex. filter return new Array)
 // 2. mutate state (ex. push doesn't return new Array, just mutate state)
 
-const reducer = createReducer([], (builder) => {
+const reducer = createReducer([],(builder) => {
   builder
-    .addCase(addToDo, (state, action) => {
-      state.push({ text: action.payload, id: Date.now() });
-    })
-    .addCase(deleteToDo, (state, action) => {
-      return state.filter((todo) => todo.id !== action.payload);
-    });
+  .addCase(addToDo,(state,action) => {
+    state.push({ text: action.payload, id: Date.now() });
+  })
+  .addCase(deleteToDo,(state,action) => {
+    return state.filter((todo) => todo.id !== action.payload);
+  })
+  
+  [addToDo]: (state, action) => {
+    
+  },
+  [deleteToDo]: (state, action) => {
+    
+  },
 });
 
 const store = createStore(reducer);

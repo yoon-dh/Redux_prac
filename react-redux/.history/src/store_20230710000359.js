@@ -36,17 +36,13 @@ export const deleteToDo = createAction("DELETE");
 // };
 
 // ✅ use redux-toolkit : createReducer
-// 1. 새로운 state를 추가할 수 있음 (이전 하던 방식) ex. filter return new Array)
-// 2. mutate state (ex. push doesn't return new Array, just mutate state)
 
-const reducer = createReducer([], (builder) => {
-  builder
-    .addCase(addToDo, (state, action) => {
-      state.push({ text: action.payload, id: Date.now() });
-    })
-    .addCase(deleteToDo, (state, action) => {
-      return state.filter((todo) => todo.id !== action.payload);
-    });
+const reducer = createReducer([], {
+  [addToDo]: (state, action) => {
+    state.push({ text: action.payload, id: Date.now() });
+  },
+  [deleteToDo]: (state, action) =>
+    state.filter((todo) => todo.id !== action.payload),
 });
 
 const store = createStore(reducer);
