@@ -49,7 +49,6 @@ const reducer = createReducer([], (builder) => {
     });
 });
 
-// ✅ if you use configureStore, you can use Redux Developer Tools
 const store = configureStore({ reducer });
 
 // store.subscribe()
