@@ -77,8 +77,3 @@ export default store;
 // });
 
 // const store = configureStore({reducer:allReducer})
-
-// 데이터가 배열인 경우
-// 그리고 데이터가 배열인 경우에는 map으로 꺼낼 때 useSelector로 꺼내온 데이터를 변수로 지정하고 콘솔찍어보면 combineReducers에서 적어놓은 리듀서 이름으로 배열이 만들어져있을거임.
-// const data = useSelector(state => state)로 빼왔으면
-// data.리듀서이름.map 으로 꺼내면 됨
