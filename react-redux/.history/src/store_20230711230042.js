@@ -49,7 +49,6 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 //     });
 // });
 
-// ✅ createSlice : have reducer & actions inside
 const toDos = createSlice({
   name: "toDosReducer",
   initialState: [],
